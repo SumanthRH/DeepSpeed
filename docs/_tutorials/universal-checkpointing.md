@@ -42,6 +42,8 @@ python ds_to_universal.py --input_folder /path/to/zero/checkpoint --output_folde
 
 This script will process the ZeRO checkpoint and generate a new checkpoint in the Universal format. Pass `--help` flag to see other options.
 
+**Note:** If you saved the ZeRO checkpoint through HuggingFace Accelerate, there might be some missing state in the checkpoint files. In this case, you can use the `--inject-missing-state` flag to the above command to inject the missing state into the checkpoint.
+
 ### Step 3: Resume Training with Universal Checkpoint
 With the Universal checkpoint ready, you can now resume training on potentially with different parallelism topologies or training configurations. To do this add `--universal-checkpoint` to your DeepSpeed config (json) file
 
